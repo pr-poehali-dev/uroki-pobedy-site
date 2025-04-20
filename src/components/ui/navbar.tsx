@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu, Star, BookOpen, GraduationCap, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -21,16 +22,16 @@ const Navbar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="text-gray-700 hover:text-victory-red font-medium transition-colors">
+            <Link to="/" className={`text-gray-700 hover:text-victory-red font-medium transition-colors ${location.pathname === '/' ? 'text-victory-red' : ''}`}>
               Главная
             </Link>
-            <Link to="/lessons" className="text-gray-700 hover:text-victory-red font-medium transition-colors">
+            <Link to="/lessons" className={`text-gray-700 hover:text-victory-red font-medium transition-colors ${location.pathname === '/lessons' ? 'text-victory-red' : ''}`}>
               Уроки
             </Link>
-            <Link to="/materials" className="text-gray-700 hover:text-victory-red font-medium transition-colors">
+            <Link to="/materials" className={`text-gray-700 hover:text-victory-red font-medium transition-colors ${location.pathname === '/materials' ? 'text-victory-red' : ''}`}>
               Материалы
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-victory-red font-medium transition-colors">
+            <Link to="/about" className={`text-gray-700 hover:text-victory-red font-medium transition-colors ${location.pathname === '/about' ? 'text-victory-red' : ''}`}>
               О проекте
             </Link>
             <Button variant="default" className="bg-victory-red hover:bg-victory-red/90 ml-2">
@@ -58,28 +59,28 @@ const Navbar = () => {
             <div className="flex flex-col space-y-4">
               <Link 
                 to="/" 
-                className="text-gray-700 hover:text-victory-red py-2 px-4 font-medium"
+                className={`text-gray-700 hover:text-victory-red py-2 px-4 font-medium ${location.pathname === '/' ? 'text-victory-red' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Главная
               </Link>
               <Link 
                 to="/lessons" 
-                className="text-gray-700 hover:text-victory-red py-2 px-4 font-medium"
+                className={`text-gray-700 hover:text-victory-red py-2 px-4 font-medium ${location.pathname === '/lessons' ? 'text-victory-red' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Уроки
               </Link>
               <Link 
                 to="/materials" 
-                className="text-gray-700 hover:text-victory-red py-2 px-4 font-medium"
+                className={`text-gray-700 hover:text-victory-red py-2 px-4 font-medium ${location.pathname === '/materials' ? 'text-victory-red' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Материалы
               </Link>
               <Link 
                 to="/about" 
-                className="text-gray-700 hover:text-victory-red py-2 px-4 font-medium"
+                className={`text-gray-700 hover:text-victory-red py-2 px-4 font-medium ${location.pathname === '/about' ? 'text-victory-red' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 О проекте
